@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y \
     # Add any other necessary dependencies for your specific llama.cpp build
     # e.g., if using Vulkan: libvulkan-dev
 
-WORKDIR /app
+WORKDIR /app/llama.cpp
 # RUN git clone https://github.com/ggerganov/llama.cpp .
 COPY . .
 
@@ -25,7 +25,7 @@ FROM --platform=linux/arm64 ubuntu:24.04
 WORKDIR /app
 
 # Copy compiled llama.cpp binaries and any required libraries
-COPY --from=builder /app/llama.cpp/build/bin/main /app/llama.cpp/main
+COPY --from=builder /app/llama.cpp/main /app/llama.cpp/main
 # Copy any other necessary binaries or libraries
 # Example: COPY --from=builder /usr/lib/aarch64-linux-gnu/libopenblas.so.0 /usr/lib/aarch64-linux-gnu/
 
