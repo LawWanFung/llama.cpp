@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  llama-cpp-builder:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      # Specify platform if building on a non-ARM64 host
+      # platform: linux/arm64
+    volumes:
+      - ./llama.cpp_output:/app/llama.cpp/build/bin # Mount to persist compiled binaries
