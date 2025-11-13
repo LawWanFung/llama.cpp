@@ -1,7 +1,7 @@
 # Stage 1: Build llama.cpp
 FROM --platform=linux/arm64 ubuntu:24.04 AS builder
 
-RUN apt-get update && apt-get install -y \
+RUN sudo apt-get update && apt-get install -y \
     build-essential \
     cmake \
     git \
