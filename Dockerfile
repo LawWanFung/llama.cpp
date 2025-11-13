@@ -1,11 +1,12 @@
 # Stage 1: Build llama.cpp
 FROM --platform=linux/arm64 ubuntu:24.04 AS builder
 
-RUN sudo apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y \
     build-essential \
     cmake \
     git \
-    libopenblas-dev \
+    libopenblas-dev 
+    # \
     # Add any other necessary dependencies for your specific llama.cpp build
     # e.g., if using Vulkan: libvulkan-dev
 
