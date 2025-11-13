@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y \
     # Add any other necessary dependencies for your specific llama.cpp build
     # e.g., if using Vulkan: libvulkan-dev
 
-WORKDIR /app/llama.cpp
+WORKDIR /app
 # RUN git clone https://github.com/ggerganov/llama.cpp .
 COPY . .
 
