@@ -10,7 +10,8 @@ RUN apt-get update && apt-get install -y \
     # e.g., if using Vulkan: libvulkan-dev
 
 WORKDIR /app/llama.cpp
-RUN git clone https://github.com/ggerganov/llama.cpp .
+# RUN git clone https://github.com/ggerganov/llama.cpp .
+COPY . .
 
 # Compile llama.cpp
 # Adjust CMake flags as needed for your specific ARM64 optimizations or features
