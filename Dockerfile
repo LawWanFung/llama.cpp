@@ -29,6 +29,8 @@ COPY --from=builder /app/llama.cpp/build /app/llama.cpp/main
 # Copy any other necessary binaries or libraries
 # Example: COPY --from=builder /usr/lib/aarch64-linux-gnu/libopenblas.so.0 /usr/lib/aarch64-linux-gnu/
 
+RUN ls -la
+
 # (Optional) Set entrypoint to run llama.cpp
 ENTRYPOINT ["/app/llama.cpp/main/llama-server"]
 # CMD ["-m", "path/to/your/model.gguf", "-p", "Your prompt here"]
