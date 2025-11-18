@@ -6,5 +6,13 @@ services:
       dockerfile: Dockerfile
       # Specify platform if building on a non-ARM64 host
       # platform: linux/arm64
+    ports:
+      - 8964:8080
     volumes:
       - ./llama.cpp_output:/app/llama.cpp/build/bin # Mount to persist compiled binaries
+    networks:
+      - dokploy-network
+
+networks:
+  dokploy-network:
+    external: true # Indicates that this network is managed externally by Dokploy
