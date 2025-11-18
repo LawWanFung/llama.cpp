@@ -17,7 +17,7 @@ COPY . .
 # Compile llama.cpp
 # Adjust CMake flags as needed for your specific ARM64 optimizations or features
 RUN cmake -B build -DCMAKE_BUILD_TYPE=Release
-RUN cmake --build build -j$(nproc)--config Release
+RUN cmake --build build -j$(nproc) --config Release
 
 RUN ls -la
 
