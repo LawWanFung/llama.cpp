@@ -24,9 +24,9 @@ RUN ls -la
 # Stage 2: Runtime image (optional, for smaller deployment)
 FROM --platform=linux/arm64 ubuntu:24.04 As final
 
-WORKDIR /app
+WORKDIR /app/build
 
-RUN ls -la ./build
+RUN ls -la 
 
 # Copy compiled llama.cpp binaries and any required libraries
 COPY --from=builder /app/llama.cpp/build/bin/main  /app/llama.cpp/main
