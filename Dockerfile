@@ -19,17 +19,13 @@ COPY . .
 RUN cmake -B build -DCMAKE_BUILD_TYPE=Release
 RUN cmake --build build -j$(nproc) --config Release
 
-RUN ls -la
-
 # Stage 2: Runtime image (optional, for smaller deployment)
 FROM --platform=linux/arm64 ubuntu:24.04 As final
 
-WORKDIR /app/build
-
-RUN ls -la 
+WORKDIR /app
 
 # Copy compiled llama.cpp binaries and any required libraries
-COPY --from=builder /app/llama.cpp/build/bin/main  /app/llama.cpp/main
+COPY --from=builder /app/llama.cpp/build /app/llama.cpp/main
 # Copy any other necessary binaries or libraries
 # Example: COPY --from=builder /usr/lib/aarch64-linux-gnu/libopenblas.so.0 /usr/lib/aarch64-linux-gnu/
 
