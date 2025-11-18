@@ -17,12 +17,16 @@ COPY . .
 # Compile llama.cpp
 # Adjust CMake flags as needed for your specific ARM64 optimizations or features
 RUN cmake -B build -DCMAKE_BUILD_TYPE=Release
-RUN cmake --build build --config Release
+RUN cmake --build build -j$(nproc)--config Release
+
+RUN ls -la
 
 # Stage 2: Runtime image (optional, for smaller deployment)
 FROM --platform=linux/arm64 ubuntu:24.04 As final
 
 WORKDIR /app
+
+RUN ls -la
 
 # Copy compiled llama.cpp binaries and any required libraries
 COPY --from=builder /app/llama.cpp/build/bin/main  /app/llama.cpp/main
