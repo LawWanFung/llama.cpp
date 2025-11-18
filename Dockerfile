@@ -22,7 +22,7 @@ RUN cmake --build build -j$(nproc) --config Release
 # Stage 2: Runtime image (optional, for smaller deployment)
 FROM --platform=linux/arm64 ubuntu:24.04 As final
 
-WORKDIR /app
+WORKDIR /app/llama.cpp
 
 # Copy compiled llama.cpp binaries and any required libraries
 COPY --from=builder /app/llama.cpp/build /app/llama.cpp/main
