@@ -44,4 +44,4 @@ RUN chmod +x /app/llama-server
 RUN ls -la /app
 
 ENTRYPOINT ["/app/llama-server"]
-CMD ["-hf", "google/gemma-2b"]
+CMD ["-hf", "unsloth/gemma-3n-E4B-it-GGUF:Q4_K_M"]
