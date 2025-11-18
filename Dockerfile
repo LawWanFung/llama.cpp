@@ -26,7 +26,7 @@ FROM --platform=linux/arm64 ubuntu:24.04 As final
 
 WORKDIR /app
 
-RUN ls -la
+RUN ls -la ./build
 
 # Copy compiled llama.cpp binaries and any required libraries
 COPY --from=builder /app/llama.cpp/build/bin/main  /app/llama.cpp/main
