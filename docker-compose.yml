@@ -12,6 +12,8 @@ services:
       - HF_TOKEN= ${HF_TOKEN}
       - HF_HOME=/models
       - XDG_CACHE_HOME=/models
+      - OMP_NUM_THREADS=4           # limit OpenMP threads to your 4 vCPU
+      - GOMP_CPU_AFFINITY=0-3      # bind to cores 0-3 (optional)
     volumes:
       # - ./llama.cpp_output:/app/llama.cpp/build/bin # Mount to persist compiled binaries
       - /mnt/data/llama.cpp:/app/llama.cpp/build/bin
