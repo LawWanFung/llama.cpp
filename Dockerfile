@@ -48,4 +48,5 @@ RUN chmod +x /app/llama-server
 RUN ldd /app/llama-server || echo "ldd failed"
 
 ENTRYPOINT ["/app/llama-server"]
-CMD ["-hf", "unsloth/gemma-3n-E4B-it-GGUF:Q4_K_M", "--host", "0.0.0.0", "--port", "8080"]
+# CMD ["-hf", "unsloth/gemma-3n-E4B-it-GGUF:Q4_K_M", "--host", "0.0.0.0", "--port", "8080"]
+CMD ["-hf", "unsloth/gpt-oss-20b-GGUF:Q4_K_M", "--host", "0.0.0.0", "--port", "8080"]
