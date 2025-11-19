@@ -11,6 +11,8 @@ services:
     environment:
       - HUGGING_FACE_HUB_TOKEN= ${HF_TOKEN}
       - HF_TOKEN= ${HF_TOKEN}
+      - HF_HOME=/models
+      - XDG_CACHE_HOME=/models
     volumes:
       # - ./llama.cpp_output:/app/llama.cpp/build/bin # Mount to persist compiled binaries
       - llama.cpp_data:/app/llama.cpp/build/bin
