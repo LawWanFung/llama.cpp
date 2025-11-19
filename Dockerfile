@@ -49,7 +49,14 @@ RUN ldd /app/llama-server || echo "ldd failed"
 
 ENTRYPOINT ["/app/llama-server"]
 # CMD ["-hf", "unsloth/gemma-3n-E4B-it-GGUF:Q4_K_M", "--host", "0.0.0.0", "--port", "8080"]
-# CMD ["-hf", "google/gemma-3-12b-it-qat-q4_0-gguf:Q4_0", "--jinja","--host", "0.0.0.0", "--port", "8080"]
+
+# Fastest, better than Q4_K_M
+# CMD ["-hf", "google/gemma-3-12b-it-qat-q4_0-gguf:Q4_0", "--jinja","--host", "0.0.0.0", "--port", "8080"] 
+
+# Probably the most balance model between speed and coding accuracy
+CMD ["-hf", "unsloth/gemma-3-12b-it-GGUF:Q6_K", "--jinja","--host", "0.0.0.0", "--port", "8080"]
+
+# The most accurate, 2.8token/s, no too slow but may not able to continue with long context
 CMD ["-hf", "unsloth/gemma-3-12b-it-GGUF:Q8_0", "--jinja","--host", "0.0.0.0", "--port", "8080"]
 # CMD ["-hf", "ggml-org/gpt-oss-20b-GGUF", "--jinja","--host", "0.0.0.0", "--port", "8080"]
 # CMD ["-hf", "unsloth/gpt-oss-20b-GGUF:Q4_K_S", "--jinja","--host", "0.0.0.0", "--port", "8080"]
