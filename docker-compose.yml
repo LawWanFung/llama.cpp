@@ -14,10 +14,7 @@ services:
       - XDG_CACHE_HOME=/models
     volumes:
       # - ./llama.cpp_output:/app/llama.cpp/build/bin # Mount to persist compiled binaries
-      # - llama.cpp_data:/app/llama.cpp/build/bin
-      - type: bind
-        source: llama.cpp_data
-        target: /app/llama.cpp/build/bin
+      - /mnt/data/llama.cpp:/app/llama.cpp/build/bin
     networks:
       - dokploy-network
 # volumes:
