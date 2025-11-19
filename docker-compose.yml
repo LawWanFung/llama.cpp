@@ -13,7 +13,7 @@ services:
       - HF_TOKEN= ${HF_TOKEN}
     volumes:
       # - ./llama.cpp_output:/app/llama.cpp/build/bin # Mount to persist compiled binaries
-      - llama.cpp_data:/app/llama.cpp/build/bid
+      - llama.cpp_data:/app/llama.cpp/build/bin
     networks:
       - dokploy-network
 volumes:
