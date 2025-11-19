@@ -16,8 +16,8 @@ RUN git clone --depth=1 https://github.com/ggerganov/llama.cpp.git .
 
 # Compile
 # -DBUILD_SHARED_LIBS=ON 係預設，所以會產生 .so 檔
-RUN cmake -B build -DCMAKE_BUILD_TYPE=Release
-RUN cmake --build build -j$(nproc) --config Release
+RUN cmake -B build -DCMAKE_BUILD_TYPE=Release -DGGML_CUDA=OFF -DLLAMA_CURL=ON
+RUN cmake --build build -j$(nproc) --config Release --clean-first 
 
 # Stage 2: Runtime image
 FROM --platform=linux/arm64 ubuntu:24.04 AS final
