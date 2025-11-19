@@ -1,4 +1,3 @@
-version: '3.8'
 services:
   llama-cpp-builder:
     build:
@@ -15,16 +14,19 @@ services:
       - XDG_CACHE_HOME=/models
     volumes:
       # - ./llama.cpp_output:/app/llama.cpp/build/bin # Mount to persist compiled binaries
-      - llama.cpp_data:/app/llama.cpp/build/bin
+      # - llama.cpp_data:/app/llama.cpp/build/bin
+      - type: bind
+        source: llama.cpp_data
+        target: /app/llama.cpp/build/bin
     networks:
       - dokploy-network
-volumes:
-  llama.cpp_data:
-    driver: local
-    driver_opts:
-      type: none
-      device: /mnt/data/dokploy
-      o: bind
+# volumes:
+#   llama.cpp_data:
+#     driver: local
+#     driver_opts:
+#       type: none
+#       device: /mnt/data/dokploy
+#       o: bind
       
 networks:
   dokploy-network:
