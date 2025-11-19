@@ -47,6 +47,11 @@ RUN chmod +x /app/llama-server
 # Debug: 再 Check 多次，今次應該會見到全部 found
 RUN ldd /app/llama-server || echo "ldd failed"
 
+ARG HF_TOKEN
+ENV HF_TOKEN=${HF_TOKEN}
+
+RUN python3 -c "from huggingface_hub._login import _login; _login(token='${HF_TOKEN}', add_to_git_credential=False)"
+
 ENTRYPOINT ["/app/llama-server"]
 # CMD ["-hf", "unsloth/gemma-3n-E4B-it-GGUF:Q4_K_M", "--host", "0.0.0.0", "--port", "8080"]
 CMD ["-hf", "google/gemma-7b-it", "--host", "0.0.0.0", "--port", "8080"]
