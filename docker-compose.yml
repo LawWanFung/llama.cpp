@@ -12,10 +12,18 @@ services:
       - HUGGING_FACE_HUB_TOKEN= ${HF_TOKEN}
       - HF_TOKEN= ${HF_TOKEN}
     volumes:
-      - ./llama.cpp_output:/app/llama.cpp/build/bin # Mount to persist compiled binaries
+      # - ./llama.cpp_output:/app/llama.cpp/build/bin # Mount to persist compiled binaries
+      - llama.cpp_data:/app/llama.cpp/build/bid
     networks:
       - dokploy-network
-
+volumes:
+  llama.cpp_data:
+    driver: local
+    driver_opts:
+      type: none
+      device: /mnt/data/dokploy
+      o: bind
+      
 networks:
   dokploy-network:
     external: true # Indicates that this network is managed externally by Dokploy
