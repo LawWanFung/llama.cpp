@@ -55,7 +55,7 @@ ENTRYPOINT ["/app/llama-server"]
 # CMD ["-hf", "unsloth/gemma-3n-E4B-it-GGUF:Q4_K_M", "--host", "0.0.0.0", "--port", "8080"]
 
 # Fastest, better than Q4_K_M
-CMD ["-hf", "google/gemma-3-12b-it-qat-q4_0-gguf:Q4_0","--model-draft", "/app/models/gemma-3-1b-it-q4_0.gguf", "--flash-attn","on","--draft-max","16","--draft-min","4", "--cache-type-k","q8_0","--cache-type-v","q8_0", "--jinja","--host", "0.0.0.0", "--port", "8080"] 
+CMD ["--model", "google/gemma-3-12b-it-qat-q4_0-gguf:Q4_0","--model-draft", "/app/models/gemma-3-1b-it-q4_0.gguf", "--flash-attn","on","--draft-max","16","--draft-min","4", "--cache-type-k","q8_0","--cache-type-v","q8_0", "--jinja","--host", "0.0.0.0", "--port", "8080"] 
 
 # Try 27B
 # CMD ["--model", "/app/models/gemma-3-27b-it-q4_0.gguf","--model-draft", "/app/models/gemma-3-1b-it-q4_0.gguf", "--flash-attn","on","--draft-max","16","--draft-min","4", "--cache-type-k","q8_0","--cache-type-v","q8_0", "--jinja","--host", "0.0.0.0", "--port", "8080"] 
