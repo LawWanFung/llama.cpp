@@ -58,7 +58,7 @@ ENTRYPOINT ["/app/llama-server"]
 # CMD ["-hf", "google/gemma-3-12b-it-qat-q4_0-gguf:Q4_0", "--jinja","--host", "0.0.0.0", "--port", "8080"] 
 
 # Try 27B
-  CMD ["-model", "/app/models/gemma-3-27b-it-qat-q4_0-gguf:Q4_0","-model-draft", "/app/models/gemma-3-27b-it-qat-q4_0-gguf:Q4_0", "--flash-attn","--draft-max","16","--draft-min","4", "--cache-type-k","q8_0","--cache-type-v","q8_0", "--jinja","--host", "0.0.0.0", "--port", "8080"] 
+  CMD ["--model", "/app/models/gemma-3-27b-it-qat-q4_0-gguf:Q4_0","--model-draft", "/app/models/gemma-3-27b-it-qat-q4_0-gguf:Q4_0", "--flash-attn","--draft-max","16","--draft-min","4", "--cache-type-k","q8_0","--cache-type-v","q8_0", "--jinja","--host", "0.0.0.0", "--port", "8080"] 
 
 # NO! EVEN SLOWER THEN Q8_0
 # CMD ["-hf", "unsloth/gemma-3-12b-it-GGUF:Q6_K", "--jinja","--host", "0.0.0.0", "--port", "8080"]
