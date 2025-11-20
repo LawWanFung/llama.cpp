@@ -17,6 +17,7 @@ services:
     volumes:
       # - ./llama.cpp_output:/app/llama.cpp/build/bin # Mount to persist compiled binaries
       - /mnt/data/llama.cpp:/app/llama.cpp/build/bin
+      - /mnt/data/llama.cpp/models:/app/models
     networks:
       - dokploy-network
 # volumes:
