@@ -55,13 +55,13 @@ ENTRYPOINT ["/app/llama-server"]
 # CMD ["-hf", "unsloth/gemma-3n-E4B-it-GGUF:Q4_K_M", "--host", "0.0.0.0", "--port", "8080"]
 
 # Fastest, better than Q4_K_M, draft model = gemma3 1b
-CMD ["--model", "/app/models/gemma-3-12b-it-q4_0.gguf","--model-draft", "/app/models/gemma-3-1b-it-q4_0.gguf", "--flash-attn","on","--draft-max","16","--draft-min","4", "-c","8096","--cache-type-k","q8_0","--cache-type-v","q8_0", "--jinja","--host", "0.0.0.0", "--port", "8080"] 
+# CMD ["--model", "/app/models/gemma-3-12b-it-q4_0.gguf","--model-draft", "/app/models/gemma-3-1b-it-q4_0.gguf", "--flash-attn","on","--draft-max","16","--draft-min","4", "-c","8096","--cache-type-k","q8_0","--cache-type-v","q8_0", "--jinja","--host", "0.0.0.0", "--port", "8080"] 
 
 # try not to use draft model
 # CMD ["--model", "/app/models/gemma-3-12b-it-q4_0.gguf","--flash-attn","on","--draft-max","16","--draft-min","4", "-c","8096","--cache-type-k","q8_0","--cache-type-v","q8_0", "--jinja","--host", "0.0.0.0", "--port", "8080"] 
 
 # Try to use chinese support model as draft model to get better Chinese support
-# CMD ["--model", "/app/models/gemma-3-12b-it-q4_0.gguf","-hfd", "keke0130/gemma-3-270m-chinese-title-generator-gguf:Q8_0", "--flash-attn","on","--draft-max","16","--draft-min","4", "-c","8096","--cache-type-k","q8_0","--cache-type-v","q8_0", "--jinja","--host", "0.0.0.0", "--port", "8080"] 
+CMD ["--model", "/app/models/gemma-3-12b-it-q4_0.gguf","-hfd", "unsloth/gemma-3-270m-it-qat-GGUF:Q8_0", "--flash-attn","on","--draft-max","16","--draft-min","4", "-c","8096","--cache-type-k","q8_0","--cache-type-v","q8_0", "--jinja","--host", "0.0.0.0", "--port", "8080"] 
 
 # Try 27B
 # CMD ["--model", "/app/models/gemma-3-27b-it-q4_0.gguf","--model-draft", "/app/models/gemma-3-1b-it-q4_0.gguf", "--flash-attn","on","--draft-max","16","--draft-min","4", "--cache-type-k","q8_0","--cache-type-v","q8_0", "--jinja","--host", "0.0.0.0", "--port", "8080"] 
