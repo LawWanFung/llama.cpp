@@ -7,8 +7,7 @@ services:
       # platform: linux/arm64
     ports:
       - 8964:8080
-    restart:
-      on-failure: 5
+    restart: on-failure: 5
     environment:
       - HUGGING_FACE_HUB_TOKEN= ${HF_TOKEN}
       - HF_TOKEN= ${HF_TOKEN}
