@@ -68,11 +68,11 @@ ENTRYPOINT ["/app/llama-server"]
 # CMD ["--model", "/app/models/L3.2-8X3B-MOE-Dark-Champion-Inst-18.4B-uncen-ablit_D_AU-Q4_k_m.gguf", "--flash-attn","on","-c","128000","--cache-type-k","q8_0","--cache-type-v","q8_0","--context-shift","--host", "0.0.0.0", "--port", "8080"] 
 
 # Try Qwen3 Neo
-CMD ["--model", "/app/models/Qwen3-64k-30B-A1.5B-NEO-MAX-Q4_K_M.gguf", "--flash-attn","on","-c","128000","--cache-type-k","q8_0","--cache-type-v","q8_0","--context-shift","--host", "0.0.0.0", "--port", "8080"] 
+# CMD ["--model", "/app/models/Qwen3-64k-30B-A1.5B-NEO-MAX-Q4_K_M.gguf", "--flash-attn","on","-c","128000","--cache-type-k","q8_0","--cache-type-v","q8_0","--context-shift","--host", "0.0.0.0", "--port", "8080"] 
 
 
-# Fastest, better than Q4_K_M, draft model = gemma3 1b
-# CMD ["--model", "/app/models/gemma-3-12b-it-q4_0.gguf", "--mmproj","/app/models/mmproj-model-f16-12B.gguf","--flash-attn","on", "-c","128000","--cache-type-k","q8_0","--cache-type-v","q8_0","--context-shift","--temp","1","--host", "0.0.0.0", "--port", "8080"] 
+# Fastest, better than Q4_K_M, draft model = gemma3 1b (The BEST)
+CMD ["--model", "/app/models/gemma-3-12b-it-q4_0.gguf", "--mmproj","/app/models/mmproj-model-f16-12B.gguf","--flash-attn","on", "-c","128000","--cache-type-k","q8_0","--cache-type-v","q8_0","--context-shift","--temp","1","--host", "0.0.0.0", "--port", "8080"] 
 
 # try not to use draft model
 # CMD ["--model", "/app/models/gemma-3-12b-it-q4_0.gguf","--flash-attn","on","--draft-max","16","--draft-min","4", "-c","8096","--cache-type-k","q8_0","--cache-type-v","q8_0", "--jinja","--host", "0.0.0.0", "--port", "8080"] 
