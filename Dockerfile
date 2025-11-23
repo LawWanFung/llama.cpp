@@ -62,7 +62,7 @@ ENTRYPOINT ["/app/llama-server"]
 # CMD ["--model", "/app/models/Model-7.6B-Q5_K_M.gguf", "--mmproj","/app/models/mmproj-model-f16.gguf","--flash-attn","on", "-c","128000","--cache-type-k","q8_0","--cache-type-v","q8_0","--context-shift","--temp","1","--host", "0.0.0.0", "--port", "8080"] 
 
 # Try gpt-oss-120b-distilled-llama-3.1
-CMD ["--model", "/app/models/gpt-oss-120b-Distill-Llama3.1-8B-v2.i1-Q4_K_M.gguf", "--mmproj","/app/models/gpt-oss-120b-Distill-Llama3.1-8B-v2.imatrix.gguf","--flash-attn","on", "-c","128000","--cache-type-k","q8_0","--cache-type-v","q8_0","--context-shift","--host", "0.0.0.0", "--port", "8080"] 
+CMD ["--model", "/app/models/gpt-oss-120b-Distill-Llama3.1-8B-v2.i1-Q4_K_M.gguf", "--mmproj","/app/models/gpt-oss-120b-Distill-Llama3.1-8B-v2.imatrix.gguf","--flash-attn","on", "-c","128000","--cache-type-k","q8_0","--cache-type-v","q8_0","--context-shift","--chat-template","llama3","--host", "0.0.0.0", "--port", "8080"] 
 
 # Fastest, better than Q4_K_M, draft model = gemma3 1b
 # CMD ["--model", "/app/models/gemma-3-12b-it-q4_0.gguf", "--mmproj","/app/models/mmproj-model-f16-12B.gguf","--flash-attn","on", "-c","128000","--cache-type-k","q8_0","--cache-type-v","q8_0","--context-shift","--temp","1","--host", "0.0.0.0", "--port", "8080"] 
