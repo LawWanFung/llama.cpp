@@ -55,11 +55,11 @@ ENTRYPOINT ["/app/llama-server"]
 # CMD ["-hf", "unsloth/gemma-3n-E4B-it-GGUF:Q4_K_M", "--host", "0.0.0.0", "--port", "8080"]
 
 # Try Qwen3
-CMD ["--model", "/app/models/Qwen3-VL-8B-Thinking-1M-Q4_K_M.gguf", "--mmproj","/app/models/mmproj-F32.gguf","--flash-attn","on", "-c","128000","--cache-type-k","q8_0","--cache-type-v","q8_0","--context-shift","--temp","1","--host", "0.0.0.0", "--port", "8080"] 
+# CMD ["--model", "/app/models/Qwen3-VL-8B-Thinking-1M-Q4_K_M.gguf", "--mmproj","/app/models/mmproj-F32.gguf","--flash-attn","on", "-c","128000","--cache-type-k","q8_0","--cache-type-v","q8_0","--context-shift","--temp","1","--host", "0.0.0.0", "--port", "8080"] 
 
 
 # Try MiniCPM without draft model
-# CMD ["--model", "/app/models/Model-7.6B-Q5_K_M.gguf", "--mmproj","/app/models/mmproj-model-f16.gguf","--flash-attn","on", "-c","128000","--cache-type-k","q8_0","--cache-type-v","q8_0","--context-shift","--temp","1","--host", "0.0.0.0", "--port", "8080"] 
+CMD ["--model", "/app/models/Model-7.6B-Q5_K_M.gguf", "--mmproj","/app/models/mmproj-model-f16.gguf","--flash-attn","on", "-c","128000","--cache-type-k","q8_0","--cache-type-v","q8_0","--context-shift","--temp","1","--host", "0.0.0.0", "--port", "8080"] 
 
 
 # Fastest, better than Q4_K_M, draft model = gemma3 1b
