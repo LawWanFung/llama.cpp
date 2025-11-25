@@ -53,4 +53,4 @@ ENV GOMP_CPU_AFFINITY=0-3
 
 ENTRYPOINT ["/app/llama-server"]
 # Try unSloth version Qwen2.5 for coding
-CMD ["--model", "/app/models/Qwen2.5-Coder-7B-Instruct-Q4_K_M.gguf", "--alias","codeklm","--flash-attn","on","-c","128000","--cache-type-k","q8_0","--cache-type-v","q8_0","--temp","0.1","--host", "0.0.0.0", "--port", "8081
+CMD ["--model", "/app/models/Qwen2.5-Coder-7B-Instruct-Q4_K_M.gguf", "--alias","codeklm","--flash-attn","on","-c","128000","--cache-type-k","q8_0","--cache-type-v","q8_0","--temp","0.1","--host", "0.0.0.0", "--port", "8081"]
