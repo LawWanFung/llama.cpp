@@ -6,7 +6,7 @@ services:
       # Specify platform if building on a non-ARM64 host
       # platform: linux/arm64
     ports:
-      - 8965:8081
+      - 8965:8080
     restart: on-failure:5
     environment:
       - HUGGING_FACE_HUB_TOKEN= ${HF_TOKEN}
