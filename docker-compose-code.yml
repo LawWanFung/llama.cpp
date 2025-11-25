@@ -1,0 +1,34 @@
+services:
+  llama-cpp-builder:
+    build:
+      context: .
+      dockerfile: Dockerfile-code
+      # Specify platform if building on a non-ARM64 host
+      # platform: linux/arm64
+    ports:
+      - 8965:8081
+    restart: on-failure:5
+    environment:
+      - HUGGING_FACE_HUB_TOKEN= ${HF_TOKEN}
+      - HF_TOKEN= ${HF_TOKEN}
+      - HF_HOME=/models
+      - XDG_CACHE_HOME=/models
+      - OMP_NUM_THREADS=4           # limit OpenMP threads to your 4 vCPU
+      - GOMP_CPU_AFFINITY=0-3      # bind to cores 0-3 (optional)
+    volumes:
+      # - ./llama.cpp_output:/app/llama.cpp/build/bin # Mount to persist compiled binaries
+      - /mnt/data/llama.cpp:/app/llama.cpp/build/bin
+      - /mnt/data/llama.cpp/models:/app/models
+    networks:
+      - dokploy-network
+# volumes:
+#   llama.cpp_data:
+#     driver: local
+#     driver_opts:
+#       type: none
+#       device: /mnt/data/dokploy
+#       o: bind
+      
+networks:
+  dokploy-network:
+    external: true # Indicates that this network is managed externally by Dokploy
